@@ -18,10 +18,12 @@ app.title = "Dashboard energia"
 server = app.server
 app.config.suppress_callback_exceptions = True
 
-
-# Load data from csv
+# main change
+# Load data from csv - updated
 def load_data():
-    # To do: Completar la función 
+    df = pd.read_csv("datos_energia.csv")
+    df = df.set_index(pd.to_datetime(df["time"])).rename_axis("date")
+    return df
     
 
 # Cargar datos
